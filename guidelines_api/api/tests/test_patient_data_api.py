@@ -11,7 +11,7 @@ class PatientGuidelineTest(LiveServerTestCase):
         response = client.get('%s%s' % (self.live_server_url, '/patientdata/'))
         json = response.json()
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(json['count'], 1000)
+        self.assertEquals(json['count'], 50)
 
     def test_get_single_patient_data(self):
         client = RequestsClient()
@@ -53,7 +53,7 @@ class PatientGuidelineTest(LiveServerTestCase):
         self.assertEquals(matching_patient['diastolic_BP'], 96)
         self.assertEquals(matching_patient['smoking_years'], 49)
         self.assertEquals(matching_patient['no_of_packs'], 4)
-        self.assertEquals(matching_patient['fasting_blood_sugar'], 4)
+        self.assertEquals(matching_patient['fasting_blood_sugar'], 195)
         self.assertEquals(matching_patient['hypothyroid'], True)
         self.assertEquals(matching_patient['obese'], True)
         self.assertEquals(matching_patient['intravenous_drug_abuse'], False)
